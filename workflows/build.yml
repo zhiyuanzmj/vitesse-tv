@@ -1,0 +1,45 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache
+          key: cypress-cache-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - uses: pnpm/action-setup@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: pnpm
+
+      - run: pnpm install
+
+      - run: pnpm build && pnpm server:build
+
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r ./dist/dist.zip ./dist/
+      - uses: tohn/rsync-deploy@v1.1.1
+        env:
+          DEPLOY_KEY: ${{ secrets.ZMJS_ML }}
+          ARGS: -az --delete
+          FOLDER: ./dist/
+          SERVER_PORT: '22'
+          SERVER_IP: zmjs.dev
+          USERNAME: root
+          SERVER_DESTINATION: /usr/share/nginx/html/tv
