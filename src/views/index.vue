@@ -3,7 +3,7 @@
     <div flex="~ col 1" mr-5>
       <div flex="~" flex-1 mb-5>
         <div flex="~ col" mr-5 w-40>
-          <RouterLink :to="{ name: '/inquiry' }" mb-5 rounded-lg cursor-pointer style="background-color:#2E84D9" flex="~ col 1" items-center justify-center p-2 px-4>
+          <RouterLink :to="{ name: '/inquiry' }" mb-5 rounded-lg cursor-pointer style="background: linear-gradient(180deg, #40D3E6 0%, #2E84D9 100%);" flex="~ col 1" items-center justify-center p-2 px-4>
             <i w-11 h-11>
               <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="&#229;&#140;&#187;&#231;&#148;&#159;">
@@ -13,7 +13,7 @@
             </i>
             <span font-500 text-xl mt-1>专家问诊</span>
           </RouterLink>
-          <RouterLink :to="{ name: '/inquiry' }" rounded-lg mb-5 cursor-pointer style="background-color:#208D77" flex="~ col 1" items-center justify-center p-2 px-4>
+          <RouterLink :to="{ name: '/inquiry' }" rounded-lg mb-5 cursor-pointer style="background: linear-gradient(180deg, #65ECD0 0%, #208D77 100%);" flex="~ col 1" items-center justify-center p-2 px-4>
             <i w-11 h-11>
               <svg width="38" height="33" viewBox="0 0 38 33" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M0.0447388 11.3101C0.0447388 1.07265 12.5322 -4.43985 18.7947 4.97265C25.0572 -4.43985 37.5447 1.07265 37.5447 11.2539C37.5447 18.1539 31.376 23.2539 26.5947 26.9101C25.6884 27.6058 24.905 28.2042 24.2201 28.7273C22.2834 30.2065 21.1339 31.0845 20.2197 31.8601C19.3947 32.5726 18.1947 32.5726 17.351 31.8789C16.7612 31.3947 16.0763 30.8692 15.1604 30.1665C14.1257 29.3725 12.7962 28.3524 10.976 26.9101L10.8983 26.8483C9.31542 25.5884 7.56129 24.1922 5.93294 22.6289L8.58986 19.8284L14.2793 25.8788C14.6033 26.2233 15.0433 26.4174 15.5025 26.4184C15.9617 26.4195 16.4026 26.2273 16.7281 25.8843L27.1436 14.9047L24.7005 12.3063L15.5124 21.9912L9.82292 15.9408C9.49892 15.5963 9.05893 15.4022 8.59971 15.4012C8.14049 15.4001 7.69965 15.5923 7.37412 15.9353L3.50609 20.0128C1.48725 17.5158 0.0447388 14.6447 0.0447388 11.3101ZM28.8822 11.8351C28.976 12.2851 29.3697 12.6226 29.8385 12.6226C30.4385 12.6226 30.9072 12.0789 30.776 11.4789C30.2697 8.9289 28.4885 6.99765 26.351 6.21015C25.7322 5.98515 25.0572 6.4539 25.0572 7.1289C25.0572 7.5414 25.3197 7.89765 25.6947 8.04765C27.176 8.5914 28.4885 9.92265 28.8822 11.8351Z" fill="white" />
@@ -21,7 +21,7 @@
             </i>
             <span font-500 text-xl mt-1>康复理疗</span>
           </RouterLink>
-          <RouterLink :to="{ name: '/mine' }" rounded-lg cursor-pointer style="background-color:#FA7F97" flex="~ col 1" items-center justify-center p-2 px-4>
+          <RouterLink :to="{ name: '/mine' }" rounded-lg cursor-pointer style="background: linear-gradient(180deg, #F7C539 0%, #FEC259 0.01%, #FA7F97 100%);" flex="~ col 1" items-center justify-center p-2 px-4>
             <i w-11 h-11>
               <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g id="&#230;&#136;&#145;&#231;&#154;&#132; 1">

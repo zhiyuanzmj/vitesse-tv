@@ -19,6 +19,9 @@ export default defineConfig({
       },
     },
   },
+  rules: [
+    ['shadow-all-side', { 'box-shadow': '0 0 10px #239fcf' }],
+  ],
   shortcuts: [
     ['btn', 'inline-block cursor-pointer text-base select-none transition duration-200 ease-in-out !hover:text-primary text-gray-500  dark:text-gray-200'],
     ['link', 'text-primary hover:opacity-70 hover:underline'],

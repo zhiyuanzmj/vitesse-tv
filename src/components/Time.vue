@@ -9,13 +9,13 @@ setInterval(() => {
   weak = weekDays[getDay(new Date())]
 }, 1000)
 
-const { data: weather } = useFetch('/v7/weather/now?location=101280805&key=dcc5d99ad3e44bf69a6eb73664d6caea').json()
+// const { data: weather } = useFetch('/v7/weather/now?location=101280805&key=dcc5d99ad3e44bf69a6eb73664d6caea').json()
 </script>
 
 <template>
-  <div flex="~ items-center gap-3">
-    <span w-50>{{ date }}</span>
+  <div flex="~ items-center">
+    <span w-50 mr-3>{{ date }}</span>
     <span>{{ weak }}</span>
-    <i text-lg :class="`i-weather:${weather?.now.icon}`" />
+    <!-- <i text-lg :class="`i-weather:${weather?.now.icon}`" /> -->
   </div>
 </template>

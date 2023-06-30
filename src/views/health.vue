@@ -13,12 +13,12 @@ const list = [
 
 <template>
   <div flex="~ col">
-    <div grid="~ cols-3" mt-3 flex-1 gap-10>
+    <div flex mt-3 flex-1>
       <button
         v-for="(i, index) in headers"
         :key="i"
-        :style="`background-image: url('/images/health${index}.png');`"
-        relative cursor-pointer transition-all rounded-lg bg-no-repeat bg-cover
+        :style="`background-image: url('/images/health${index}.png');margin-right:${index===headers.length-1?'0':'2.5rem'}`"
+        relative cursor-pointer transition-all rounded-lg bg-no-repeat bg-cover flex-1
         :class="activeHeader === i && 'scale-108 shadow-all-side'"
         @focus="activeHeader = i"
         @mouseover="activeHeader = i"
@@ -27,20 +27,24 @@ const list = [
       </button>
     </div>
 
-    <div mt-5 mb-1 text-lg>养生推荐</div>
+    <div mt-5 mb-1 text-lg>
+      养生推荐
+    </div>
 
-    <div grid="~ cols-5" flex-1 gap-8>
-      <div v-for="(i, index) in list" :key="i.label" cursor-pointer overflow-hidden flex="~ col">
+    <div flex="~ 1">
+      <div
+        v-for="(i, index) in list" :key="i.label" 
+        :style="index===list.length-1?`margin-right:0`:''"
+        flex-1 mr-8 cursor-pointer overflow-hidden flex="~ col"
+      >
         <button flex-1 bg-no-repeat bg-cover rounded-lg :style="`background-image: url('/images/health-${index}.png');`" />
-        <div mt-2 text-lg font-500>{{ i.label }}</div>
-        <div op70 whitespace-nowrap>{{ i.description }}</div>
+        <div mt-2 text-lg font-500>
+          {{ i.label }}
+        </div>
+        <div op70 whitespace-nowrap>
+          {{ i.description }}
+        </div>
       </div>
     </div>
   </div>
 </template>
-
-<route lang="yaml">
-meta:
-  title: 老年养生
-  order: 3
-</route>

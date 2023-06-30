@@ -24,7 +24,7 @@ module.exports = {
         max: 80
       },
       multiline: {
-        max: 1
+        max: 10
       }
     }]
   }

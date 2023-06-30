@@ -24,31 +24,44 @@ const list = [
 </script>
 
 <template>
-  <div flex-1 grid grid-cols="[auto_1fr]" gap-5>
-    <div justify-around rounded-lg style="background-color: rgba(0, 0, 0, 30%);" flex="~ col gap-3">
+  <div flex="~ 1">
+    <div justify-around rounded-lg style="background-color: #164e6380;" flex="~ col">
       <RouterLink
-        v-for="(sidebar, index) in sidebars" :key="sidebar"
-        gap-3 flex="~" flex-wrap justify-center items-center px-5 py-3 rounded-lg
+        v-for="(sidebar, index) in sidebars"
+        :key="sidebar"
+        flex="~" flex-wrap justify-center items-center 
+        px-5 py-3 rounded-lg
         :to="{ query: { sidebar: index || undefined } }"
         :class="($route.query.sidebar || '0') === `${index}` ? 'bg-blue-500' : ''"
       >
-        <i text-2xl :class="`i-custom:vector${index}`" />
+        <i text-2xl :class="`i-custom:vector${index}`" mb-3 />
         <span text-lg mx-auto whitespace-nowrap>{{ sidebar }}</span>
       </RouterLink>
     </div>
 
-    <div grid grid-cols="[repeat(5,1fr)]" gap-5>
-      <button v-for="(i, index) in list" :key="i.label" cursor-pointer flex="~ col">
-        <img object-cover flex-1 rounded-lg :src="`/images/classroom${index}.png`">
-        <div mt-2 text-lg font-500>{{ i.label }}</div>
-        <div op70 whitespace-nowrap>{{ i.description }}</div>
-      </button>
+    <div flex="~ 1 col">
+      <div flex="~ 1">
+        <button v-for="(i, index) in list.slice(0,5)" ml-5 :key="i.label" cursor-pointer flex="~ col 1">
+          <img object-cover flex-1 rounded-lg :src="`/images/classroom${index}.png`">
+          <div mt-2 text-lg font-500>
+            {{ i.label }}
+          </div>
+          <div op70 whitespace-nowrap>
+            {{ i.description }}
+          </div>
+        </button>
+      </div>
+      <div flex="~ 1" mt-5>
+        <button v-for="(i, index) in list.slice(5,10)" :key="i.label" cursor-pointer ml-5 flex="~ col 1">
+          <img object-cover flex-1 rounded-lg :src="`/images/classroom${5+index}.png`">
+          <div mt-2 text-lg font-500>
+            {{ i.label }}
+          </div>
+          <div op70 whitespace-nowrap>
+            {{ i.description }}
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 </template>
-
-<route lang="yaml">
-meta:
-  title: 老年课堂
-  order: 2
-</route>

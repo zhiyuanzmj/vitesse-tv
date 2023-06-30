@@ -3,7 +3,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue2'
 import legacy from '@vitejs/plugin-legacy'
-import eslint from 'vite-plugin-eslint'
+// import eslint from 'vite-plugin-eslint'
 import Unocss from 'unocss/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -42,7 +42,7 @@ export default defineConfig({
         'src/stores',
       ],
     }),
-    eslint(),
+    // eslint(),
     Unocss(),
   ],
   resolve: {
