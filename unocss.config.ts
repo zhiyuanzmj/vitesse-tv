@@ -14,7 +14,7 @@ export default defineConfig({
   theme: {
     colors: {
       primary: {
-        DEFAULT: 'var(--el-color-primary)',
+        DEFAULT: '#409EFF',
         ...Array(9).fill('').reduce((a, _, index) => (a[index + 1] = `rgba(var(--el-color-primary-rgb) / ${index + 1}0%)`, a), {}),
       },
     },

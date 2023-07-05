@@ -25,7 +25,7 @@ const list = [
 
     <div flex="~ col 1" h="[calc(100vh-200px)]">
       <div flex-1 overflow-hidden>
-        <video w-full h-full rounded-lg bg-cover controls poster="/images/policy.png">
+        <video preload="none" w-full h-full rounded-lg object-cover controls poster="/images/policy.png">
           <source src="/images/test.mp4" type="video/mp4">
         </video>
       </div>
@@ -36,7 +36,7 @@ const list = [
         <div
           v-for="(i, index) in 4"
           :key="i"
-          :style="index===3?'margin-right:0;':''"
+          :style="index === 3 ? 'margin-right:0;' : ''"
           relative flex="~ 1" mr-5
         >
           <img bg-cover w-full :src="`/images/policy${index}.png`">

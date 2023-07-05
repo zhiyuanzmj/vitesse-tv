@@ -1,31 +1,31 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
   root: true,
-  'extends': [
-    'eslint:recommended',
-    'plugin:vue/strongly-recommended',
-    '@vue/eslint-config-typescript'
+  extends: [
+    '@antfu',
   ],
   parserOptions: {
-    ecmaVersion: 13
+    ecmaVersion: 13,
   },
   plugins: [
-    'vue'
+    'vue',
   ],
+
+  // add your custom rules here
+  // it is base on https://github.com/vuejs/eslint-config-vue
   rules: {
-    'space-before-function-paren': 0,
-    'vue/multi-word-component-names': 0,
-    'vue/no-parsing-error': 0,
-    'vue/max-attributes-per-line': ['error', {
-      singleline: {
-        max: 80
-      },
-      multiline: {
-        max: 10
-      }
-    }]
-  }
+    'no-sequences': 'off',
+    'vue/no-mutating-props': 'off',
+    'object-property-newline': 'off',
+    'object-curly-newline': 'off',
+    '@typescript-eslint/brace-style': 'off',
+    'vue/singleline-html-element-content-newline': 'off',
+    'jsx-quotes': [
+      'error',
+      'prefer-double',
+    ],
+  },
 }

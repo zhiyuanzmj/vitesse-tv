@@ -34,7 +34,7 @@ const list = [
       </div>
 
       <div grow-2 flex-1 overflow-hidden>
-        <video w-full h-full rounded-lg bg-cover controls poster="/images/inquiry.png">
+        <video preload="none" w-full h-full rounded-lg object-cover controls poster="/images/inquiry.png">
           <source src="/images/test.mp4" type="video/mp4">
         </video>
       </div>
@@ -49,9 +49,9 @@ const list = [
 
     <div flex="~ 1">
       <div
-        flex-1 mr-8
-        v-for="(i, index) in list" :key="i.label" cursor-pointer overflow-hidden flex="~ col" p-5 style="border: 1px dashed #5187ED;background-color: #04094B;"
-        :style="index===list.length-1?'margin-right:0':''"
+        v-for="(i, index) in list" :key="i.label"
+        flex-1 mr-8 cursor-pointer overflow-hidden flex="~ col" p-5 style="border: 1px dashed #5187ED;background-color: #04094B;"
+        :style="index === list.length - 1 ? 'margin-right:0' : ''"
       >
         <div flex>
           <div mr-3 bg-no-repeat w-15 h-15 bg-cover rounded-full :style="`background-image: url('/images/inquiry-${index}.png');`" />

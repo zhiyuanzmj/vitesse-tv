@@ -12,6 +12,7 @@
     "deploy": "rsync -az --delete ./dist/ root@zmjs.dev:/usr/share/nginx/html/tv"
   },
   "dependencies": {
+    "@antfu/eslint-config": "^0.39.7",
     "@iconify/json": "^2.2.84",
     "@iconify/utils": "^2.1.7",
     "@vue-macros/volar": "^0.11.0",
