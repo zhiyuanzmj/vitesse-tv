@@ -28,7 +28,7 @@ const list = [
         </video>
       </div>
       <RouterLink :to="{ path: `/service/service` }" flex="~ col" grow-1 style="background-color: #9ca3af;" rounded-lg items-center justify-center>
-        <img src="images/service.svg" mt-auto mb-3>
+        <img src="/images/service.svg" mt-auto mb-3>
         <span text-lg mb-auto>居家守护</span>
       </RouterLink>
     </div>
