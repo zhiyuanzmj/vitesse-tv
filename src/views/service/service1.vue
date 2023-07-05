@@ -37,8 +37,9 @@ const money = computed(() => list1[moneyIndex]?.value || 0)
         <div flex="~ wrap">
           <button
             v-for="(i) in list" :key="i.label"
-            b="2 solid transparent" bg-gray-6 mr-5 mb-5 rounded px-3 py-1 relative
-            :class="i.status && 'b-blue-5! text-primary bg-transparent'"
+            b="2 solid transparent" mr-5 mb-5 rounded px-3 py-1 relative
+            style="background-color: #4b5563;"
+            :class="i.status && 'b-blue-5 text-primary bg-transparent!'"
             @click="i.status = !i.status"
           >
             <i v-if="i.status" text-2xl i-custom:bottom-right absolute right-0 bottom-0 />
@@ -52,17 +53,18 @@ const money = computed(() => list1[moneyIndex]?.value || 0)
           <button
             v-for="(i, index) in list1"
             :key="i.value" b="2 solid transparent"
-            bg-gray-6 mr-5 rounded px-3 py-1 relative
+            mr-5 rounded px-3 py-1 relative
+            style="background-color: #4b5563;"
             :class="moneyIndex === index && 'b-blue-5! text-primary bg-transparent'"
             @click="moneyIndex = index"
           >
             <i v-if="moneyIndex === index" text-2xl i-custom:bottom-right absolute right-0 bottom-0 />
-            ¥ {{ i.value }} / 项 <span text-sm text-gray-3 ml-1>{{ i.label }}</span>
+            ¥ {{ i.value }} / 项 <span text-sm style="color: #d1d5db;" ml-1>{{ i.label }}</span>
           </button>
         </div>
 
-        <div b="0 b-1 solid gray2" mt-10 mb-3 />
-        <!-- <div text-gray-3 text-sm>注：以上项目任加选两项续费可免首年坐席服务费；或20元/月</div> -->
+        <div b="0 b-1 solid" style="border-color: #e5e7eb;" mt-10 mb-3 />
+        <!-- <div style="color: #d1d5db" text-sm>注：以上项目任加选两项续费可免首年坐席服务费；或20元/月</div> -->
         <div mt-5 flex items-center>
           <div text-xl ml-auto>合计：<span text="#83E0FD">¥ {{ money }}</span></div>
           <button bg-primary rounded ml-3 px-4 py-2>确认服务并支付</button>
