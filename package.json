@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "run-p build-only",
     "preview": "vite preview",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "deploy": "rsync -az --delete ./dist/ root@zmjs.dev:/usr/share/nginx/html/tv"
+    "deploy": "pnpm build && ssh root@zmjs.dev 'rm -rf /usr/share/nginx/html/tv' && scp -r ./dist/ root@zmjs.dev:/usr/share/nginx/html/tv"
   },
   "dependencies": {
     "@antfu/eslint-config": "^0.39.7",

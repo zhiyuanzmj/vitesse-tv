@@ -28,6 +28,9 @@ html.dark {
 .bg-blue4,.bg-blue-4,[bg-blue-4],[bg-blue4]{
   background-color: #60a5fa !important;
 }
+.bg-yellow5,.bg-yellow-5,[bg-yellow-5],[bg-yellow5]{
+  background-color: #eab308 !important;
+}
 
 .b-blue5,.b-blue-5,[b-blue-5],[b-blue5]{
   border-color: #409EFF !important;
