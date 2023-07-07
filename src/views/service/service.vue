@@ -17,7 +17,11 @@ const moneyIndex = $ref(0)
 const count = $ref(1)
 
 const money = computed(() => {
-  return list.value.filter(it => it.status).reduce((a, b) => a + b.money, 0)
+  let temp = list.value.filter(it => it.status)
+  let yes = temp.some(it => it.label == '坐席服务')
+  let total = temp.reduce((a, b) => a + b.money, 0)
+  if (yes && temp.length > 1) total = total - 180
+  return total
 })
 </script>
 
