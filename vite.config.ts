@@ -1,8 +1,9 @@
-import { fileURLToPath, URL } from 'node:url'
+import { URL, fileURLToPath } from 'node:url'
 
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue2'
 import legacy from '@vitejs/plugin-legacy'
+
 // import eslint from 'vite-plugin-eslint'
 import Unocss from 'unocss/vite'
 import VueMacros from 'unplugin-vue-macros/vite'
@@ -10,8 +11,8 @@ import AutoImport from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  build:{
-    cssTarget:["chrome30"]
+  build: {
+    cssTarget: ['chrome30'],
   },
   plugins: [
     legacy({
@@ -47,7 +48,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  }
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
 })

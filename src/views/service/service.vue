@@ -11,7 +11,7 @@ const list = ref([
 
 const list1 = $ref([
   { label: '(个人)', value: 180 },
-  { label: '(合作批发)', value: 126 },
+  // { label: '(合作批发)', value: 126 },
 ])
 const moneyIndex = $ref(0)
 
