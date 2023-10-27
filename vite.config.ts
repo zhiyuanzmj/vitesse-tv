@@ -41,11 +41,20 @@ export default defineConfig({
       dirs: [
         'src/composables',
         'src/stores',
+        'src/router',
       ],
     }),
     // eslint(),
     Unocss(),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://yl.zmjs.dev',
+        changeOrigin: true,
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

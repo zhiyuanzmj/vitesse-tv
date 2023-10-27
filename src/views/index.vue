@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import axios from 'axios'
+function fetchList(){
+  axios.get('/yanglaotv/index',{
+    
+  })
+}
+</script>
 <template>
   <div flex>
     <div flex="~ col 1" mr-5>

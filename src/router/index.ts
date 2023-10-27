@@ -1,5 +1,5 @@
 import VueRouter from 'vue-router'
-import Vue from 'vue'
+import Vue, { computed } from 'vue'
 import HomeView from '../views/index.vue'
 
 Vue.use(VueRouter)
@@ -138,3 +138,13 @@ const router = new VueRouter({
 // })
 
 export default router
+
+export function useRouter() {
+  return router
+}
+
+export function useRoute() {
+  return computed(
+    () => router.currentRoute,
+  )
+}
