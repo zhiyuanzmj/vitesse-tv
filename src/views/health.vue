@@ -17,7 +17,7 @@ const list = [
       <button
         v-for="(i, index) in headers"
         :key="i"
-        :style="`background-image: url('/images/health${index}.png');margin-right:${index===headers.length-1?'0':'2.5rem'}`"
+        :style="`background-image: url('/images/health${index}.png');margin-right:${index === headers.length - 1 ? '0' : '2.5rem'}`"
         relative cursor-pointer transition-all rounded-lg bg-no-repeat bg-cover flex-1
         :class="activeHeader === i && 'scale-108 shadow-all-side'"
         @focus="activeHeader = i"
@@ -33,8 +33,8 @@ const list = [
 
     <div flex="~ 1">
       <div
-        v-for="(i, index) in list" :key="i.label" 
-        :style="index===list.length-1?`margin-right:0`:''"
+        v-for="(i, index) in list" :key="i.label"
+        :style="index === list.length - 1 ? `margin-right:0` : ''"
         flex-1 mr-8 cursor-pointer overflow-hidden flex="~ col"
       >
         <button flex-1 bg-no-repeat bg-cover rounded-lg :style="`background-image: url('/images/health-${index}.png');`" />

@@ -26,14 +26,14 @@ export const routes = [
       title: '老年课堂',
     },
   },
-  {
-    path: '/health',
-    name: '/health',
-    component: () => import('@/views/health.vue'),
-    meta: {
-      title: '老年养生',
-    },
-  },
+  // {
+  //   path: '/health',
+  //   name: '/health',
+  //   component: () => import('@/views/health.vue'),
+  //   meta: {
+  //     title: '老年养生',
+  //   },
+  // },
   {
     path: '/service',
     component,
