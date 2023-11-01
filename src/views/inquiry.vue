@@ -1,17 +1,37 @@
 <script setup lang="ts">
-const list = [
-  { label: '安云霞', description: '擅长:老年高血压，冠心病，血脂异常的诊治' },
-  { label: '陈坤', description: '擅长:老年常见慢性疾病诊治，常见老年综合症的管理' },
-  { label: '王慧珍', description: '擅长:老年消化道疾病的预防和诊治' },
-]
+let classificationId = $(useRouteQuery('classificationId'))
+let sidebars = $ref([])
+useApi({
+  url: '/specialist/classification',
+}).then(({ data }) => {
+  sidebars = data
+  classificationId = classificationId || data[0].id
+})
+
+watch(() => classificationId, () => {
+  fetchList()
+}, { immediate: true })
+
+let list = $ref([])
+async function fetchList() {
+  if (!classificationId)
+    return
+  const { data } = await useApi({
+    url: '/specialist',
+    params: {
+      classificationId,
+    },
+  })
+  list = data
+}
 </script>
 
 <template>
   <div flex="~ col">
-    <div text-lg>
+    <div text-3xl mb-3>
       专家问诊
     </div>
-    <div flex mt-3 flex-1>
+    <!-- <div flex mt-3 flex-1>
       <button mr-10 grow-1 flex="~ col" justify-center items-center rounded-lg style="background: linear-gradient(180deg, #62D5AA 0%, #3FD481 100%);">
         <i text-5xl i-custom:inquiry mb-3 mx-auto mt-auto />
         <span text-xl mb-auto>预约挂号</span>
@@ -38,40 +58,42 @@ const list = [
           <source src="/images/test.mp4" type="video/mp4">
         </video>
       </div>
-    </div>
-
-    <div mt-5 mb-1 text-lg flex justify-between>
-      推荐医生
-      <button text-base flex items-center>
-        更多<i i-material-symbols:chevron-right-rounded />
-      </button>
-    </div>
-
+    </div> -->
     <div flex="~ 1">
-      <div
-        v-for="(i, index) in list" :key="i.label"
-        flex-1 mr-8 cursor-pointer overflow-hidden flex="~ col" p-5 style="border: 1px dashed #5187ED;background-color: #04094B;"
-        :style="index === list.length - 1 ? 'margin-right:0' : ''"
-      >
-        <div flex>
-          <div mr-3 bg-no-repeat w-15 h-15 bg-cover rounded-full :style="`background-image: url('/images/inquiry-${index}.png');`" />
-          <div>
-            <div text-lg font-500>
-              {{ i.label }}
-            </div>
-            <div mt-4 op70 whitespace-nowrap>
-              {{ i.description }}
+      <div flex="~ col justify-start" mr-5 rounded-lg text-nowrap>
+        <RouterLink
+          v-for="(sidebar) in sidebars" :key="sidebar.id"
+          flex p5 rounded
+          :to="{ query: { classificationId: sidebar.id } }"
+          :style="($route.query.classificationId || '0') === `${sidebar.id}` && 'background: linear-gradient(90deg, #1A95FF 0%, rgba(26, 149, 255, 0.00) 100%);'"
+        >
+          <span>{{ sidebar.name }}</span>
+        </RouterLink>
+      </div>
+      <div flex="~ 1 items-start" ml-5>
+        <div
+          v-for="(i, index) in list" :key="i.label"
+          w="1/3" mr-8 cursor-pointer overflow-hidden flex="~ col" rounded p-5 style="border: 1px solid #5187ED;background-color: #04094B;"
+          :style="index === list.length - 1 ? 'margin-right:0' : ''"
+        >
+          <div flex="~ items-center">
+            <div mr-5 bg-no-repeat w-15 h-15 bg-cover rounded-full :style="`background-image: url('/api/file/${i.photo}');`" />
+            <div text-xl font-500 text="#83E0FD">
+              {{ i.name }}
             </div>
           </div>
-        </div>
 
-        <div flex mt-auto>
-          <button flex-1 mr-3 px-5 py-3 rounded style="background-color: #2563eb;">
-            预约挂号
-          </button>
-          <button flex-1 px-5 py-3 border="1 solid blue-5" rounded>
-            在线咨询
-          </button>
+          <div mt-5>
+            {{ i.description }}
+          </div>
+          <!-- <div flex mt-auto>
+            <button flex-1 mr-3 px-5 py-3 rounded style="background-color: #2563eb;">
+              预约挂号
+            </button>
+            <button flex-1 px-5 py-3 border="1 solid blue-5" rounded>
+              在线咨询
+            </button>
+          </div> -->
         </div>
       </div>
     </div>
