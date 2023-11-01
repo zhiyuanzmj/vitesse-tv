@@ -101,19 +101,19 @@ export const routes = [
     },
   },
   {
-    path: '/other',
-    name: '/other',
-    component: () => import('@/views/other.vue'),
-    meta: {
-      title: '其他',
-    },
-  },
-  {
     path: '/inquiry',
     name: '/inquiry',
     component: () => import('@/views/inquiry.vue'),
     meta: {
       title: '专家问诊',
+    },
+  },
+  {
+    path: '/other',
+    name: '/other',
+    component: () => import('@/views/other.vue'),
+    meta: {
+      title: '其他',
     },
   },
   {
