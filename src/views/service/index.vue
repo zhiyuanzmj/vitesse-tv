@@ -23,7 +23,7 @@ async function getList() {
 }
 getList()
 
-async function post(elderlyServicesId: string) {
+async function post(elderlyServicesId) {
   const result = confirm('确认下单?')
   if (!result)
     return
